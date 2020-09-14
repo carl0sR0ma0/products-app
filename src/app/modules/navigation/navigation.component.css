@@ -6,6 +6,10 @@
   margin-left: 15px;
   margin-top: 10px;
 }
+a {
+  margin-top: 15%;
+  margin-left: 20px;
+}
 .outlet {
   height: 88vh;
   padding: 15px;

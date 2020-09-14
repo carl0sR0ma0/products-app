@@ -4,6 +4,7 @@ import { RouterModule } from "@angular/router";
 
 /**Importações do Material */
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 import { NavigationComponent } from './navigation.component';
@@ -17,8 +18,9 @@ import { NavigationComponent } from './navigation.component';
   imports: [
     CommonModule,
     MatIconModule,
+    MatButtonModule,
     MatToolbarModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [
     NavigationComponent
