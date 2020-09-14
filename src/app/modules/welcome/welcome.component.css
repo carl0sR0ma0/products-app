@@ -1,5 +1,5 @@
 .welcome {
-  background-color: rgb(149, 162, 224);
+  background-color: rgb(228, 235, 121);
   max-width: 600px;
   padding: 35px;
   margin: auto;
@@ -8,4 +8,12 @@
 
 .welcome-content {
   text-align: center;
+}
+
+h1{
+  color: #673ab7;
+}
+
+h2 {
+  color: rgb(85, 75, 75);
 }
