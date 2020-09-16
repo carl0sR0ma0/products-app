@@ -5,7 +5,7 @@ export interface Produto {
   sku: String,
   name: String,
   description?: String,
-  prince?: Number,
+  price?: Number,
   qty?: Number,
   freeShipping: boolean,
   enabled: boolean,

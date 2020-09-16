@@ -1,0 +1,18 @@
+<mat-card class="mat-elevation-z4">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{produto.name}}</mat-card-title>
+    <mat-card-subtitle>{{produto.brand}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image class="produtoImage" [src]=produto.image alt="Photo of a {{produto.name}}">
+  <mat-card-content>
+    <span mat-h2>{{produto.price}}</span>
+    <p>
+      {{sliceDescriptions(produto.description)}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>

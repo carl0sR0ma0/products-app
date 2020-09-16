@@ -1,19 +1,5 @@
-<div *ngFor="let produto of Produtos">
-  <mat-card class="example-card">
-    <mat-card-header>
-      
-      <mat-card-title>{{produto.name}}</mat-card-title>
-      <mat-card-subtitle>{{produto.brand}}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image [src]=produto.image alt="Photo of a {{produto.name}}">
-    <mat-card-content>
-      <p>
-        {{produto.description}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
+<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="33.33%" *ngFor="let produto of Produtos">
+    <app-products-card [produto]="produto"></app-products-card>
+  </div>  
 </div>
