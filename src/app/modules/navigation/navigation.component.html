@@ -1,20 +1,11 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <mat-icon class="icon-title" aria-hidden="false" aria-label="Example home icon">add_shopping_cart</mat-icon>
-    <h1 id="spacer">{{title}}</h1>
+  <mat-toolbar-row>    
+    <h1>{{title}}</h1>
     <span class="menu-spacer"></span>
     <div>
-      <a class="botoes" mat-button color="accent" [routerLink]="'/home'" >Início</a>
+      <a class="botoes" mat-button [routerLink]="'/home'" >Home</a>
     </div>
-    <div>
-      <!-- Campo de texto para pequisar um produto -->
-    </div>
-  </mat-toolbar-row>
-  <!-- <mat-toolbar-row>
-    <div>
-      Botões de Navegação
-    </div>
-  </mat-toolbar-row> -->
+  </mat-toolbar-row>  
 </mat-toolbar>
 <div class="outlet">
   <router-outlet></router-outlet>

@@ -1,16 +1,11 @@
-.icon-title {
-  margin-left: 15%;
-  margin-top: 10px;
-}
-#spacer {
-  margin-left: 15px;
-  margin-top: 10px;
-}
-a {
-  margin-top: 15%;
-  margin-left: 20px;
-}
 .outlet {
   height: 88vh;
   padding: 15px;
+}
+
+h1 {
+  padding-left: 39px;
+  padding-right: 20px;
+  font-size: 25px;
+  font-weight: bold;
 }

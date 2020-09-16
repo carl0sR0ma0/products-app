@@ -1,17 +1,30 @@
-.welcome {
+.caroussel {
   background-color: rgb(228, 235, 121);
+  max-width: 1200px;
+  height: 110px;
+  padding: 40px;
+  margin: auto;
+}
+
+.welcome {
+  background-color: #ffffff;
   max-width: 600px;
   padding: 35px;
   margin: auto;
   border-radius: 10px 20px;
 }
 
+.mat-display-2, .mat-typography .mat-display-2 {
+  margin: 0 0 10px;
+}
+
 .welcome-content {
   text-align: center;
+  padding: 10px;
 }
 
 h1{
-  color: #673ab7;
+  color: #673ab7;  
 }
 
 h2 {
