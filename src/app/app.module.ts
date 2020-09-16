@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ToastrModule } from "ngx-toastr";
 
+import { FooterModule } from "./modules/footer/footer.module";
 import { NavigationModule } from './modules/navigation/navigation.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
@@ -17,6 +18,7 @@ import { AppRoutingModule } from "./app-routing.module";
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NavigationModule,
+    FooterModule,
     AppRoutingModule
   ],
   providers: [],
