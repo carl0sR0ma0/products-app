@@ -19,4 +19,12 @@ export class ProductsCardComponent implements OnInit {
     return `${value.slice(0, 100)}...`
   }
 
+  verificationFreeShipping(value: boolean): String {
+    if (value) {
+      return `Frete Grátis`
+    } else {
+      return `${this.produto.qty}`
+    }
+  }
+
 }

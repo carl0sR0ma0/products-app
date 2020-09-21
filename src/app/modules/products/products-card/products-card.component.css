@@ -1,7 +1,12 @@
 .produtoImage {
-  height: 200px;
+  height: 150px;
 }
 
 .content>mat-card {
-  width: 100px;
+  width: 200px;
+}
+
+.promocao {
+  color: #00a650;
+  font-size: 13px;
 }
