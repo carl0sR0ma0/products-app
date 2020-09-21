@@ -1,4 +1,30 @@
+.main-header {
+  height: 30px;
+  padding: 10px 40px;
+  display: flex;  
+}
+
+.logo-text {
+  margin-left: 5px;
+}
+
+.logo-text-1 {
+  color: #FFF;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.logo-text-2 {
+  color: #00D4FF;
+}
+
 .outlet {
   height: 88vh;
   padding: 15px;
+}
+
+@media (max-width: 850px) {
+  .main-header {
+    justify-content: center;
+  }
 }
