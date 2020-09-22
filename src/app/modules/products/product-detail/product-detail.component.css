@@ -1,0 +1,25 @@
+.content {
+  padding: 10px;
+}
+
+.productCover {
+  height: 400px;
+  max-width: 400px;
+}
+
+.description {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: -20px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.productInfo {
+  font-size: 14px;
+  color: #111115;
+}
+
+.price {
+  color: #00A650;
+}

@@ -14,4 +14,8 @@ export class ProductsService {
   findAllProducts(): Observable<HttpResponse<Produto[]>> {
     return this.http.get<Produto[]>(`${API_URL}/produto/listarTodos`, { observe: 'response' })
   }
+
+  findProductByName(productName: String) : Observable<HttpResponse<Produto>> {
+    return this.http.get<Produto>(`${API_URL}/produto/listarUm/${productName}`, { observe: 'response' })
+  }
 }

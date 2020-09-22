@@ -1,1 +1,30 @@
-<p>product-detail works!</p>
+<div class="content" fxLayout="column" fxLayout.gt-sm="row" fxFlexAlign="start center"
+  fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
+  <div fxFlex="50%" fxFlex.gt-sm="25%">
+    <mat-card class="mat-elevation-z0">
+      <img mat-card-image class="productCover" [src]="Produto.image" alt="Photo of a {{Produto.name}}" />
+    </mat-card>
+    <mat-card class="mat-elevation-z3">
+      <mat-card-header>
+        <h1>{{Produto.category.name}}</h1>
+        <div class="description">{{Produto.description}}</div>
+      </mat-card-header>
+    </mat-card>
+  </div>
+  <div fxFlex="50" fxFlex.gt-sm="75%">
+    <mat-card class="mat-elevation-z0">
+      <div class="row">
+        <span class="mat-display-1">{{Produto.name}}</span><span class="mat-display-1">{{Produto.brand}}</span><span class="mat-display-1">{{Produto.model}}</span>
+        <br>
+        <span class="productInfo price">{{Produto.price}}</span>
+        <br>
+        <span *ngIf="Produto.freeShipping" class="productInfo">{{Produto.freeShipping}}</span>
+      </div>
+      <div *ngIf="Produto.enabled || Produto.qty" class="row">
+        <span *ngIf="Produto.enabled" class="productInfo">{{Produto.enabled}}</span>
+        &nbsp;
+        <span *ngIf="Produto.qty" class="productInfo">{{Produto.qty}}</span>
+      </div>
+    </mat-card>
+  </div>
+</div>
