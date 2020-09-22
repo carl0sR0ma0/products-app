@@ -1,4 +1,5 @@
-<div class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+<app-loading *ngIf="!Produtos"></app-loading>
+<div *ngIf="Produtos" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let produto of Produtos">
     <app-products-card [produto]="produto"></app-products-card>
   </div>  

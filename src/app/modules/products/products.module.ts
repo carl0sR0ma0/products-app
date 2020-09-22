@@ -9,6 +9,7 @@ import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ComponentsModule } from './../../components/components.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     ProductsRoutingModule,
     MatCardModule,
     MatButtonModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ComponentsModule
   ]
 })
 export class ProductsModule { }
