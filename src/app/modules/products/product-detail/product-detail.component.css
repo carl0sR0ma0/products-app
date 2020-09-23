@@ -1,5 +1,5 @@
 .content {
-  padding: 10px;
+  padding: 5%;
 }
 
 .productCover {
@@ -10,16 +10,29 @@
 .description {
   font-size: 16px;
   margin-top: 10px;
-  margin-left: -20px;
+  margin-left: -30px;
   text-align: justify;
   text-justify: inter-word;
+  font-size: 16px;
 }
 
 .productInfo {
-  font-size: 14px;
+  font-size: 26px;
   color: #111115;
 }
 
 .price {
+  font-size: 14px;
   color: #00A650;
+}
+
+.tamanho {
+  margin: 0;
+  width: 70vw;
+  padding: 15px;
+}
+
+.prodQtdy {
+  color: rgba(0, 0, 0, 0.192);
+  font-size: 15px;
 }

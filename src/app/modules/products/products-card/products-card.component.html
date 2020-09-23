@@ -6,7 +6,7 @@
     <mat-card-subtitle class="promocao">{{verificationFreeShipping(produto.freeShipping)}}</mat-card-subtitle>
     <!-- <div mat-card-avatar class="example-header-image"></div> -->
   </mat-card-header>
-  <span [routerLink]="['/products/detail', produto.name]" class="mat-h3 routerLinkProduct">{{produto.name}}</span>
+  <span [routerLink]="['/products/detail', produto.name]" class="mat-h4 routerLinkProduct">{{produto.name}}</span>
   <mat-card-content>
     <p>
       {{sliceDescriptions(produto.description)}}

@@ -37,4 +37,20 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     })
   }
 
+  verificationFreeShipping(value: boolean): String {
+    if (value) {
+      return `Frete Grátis`
+    } else {
+      return `${this.Produto.qty}`
+    }
+  }
+
+  verificationEstoque(value: boolean): String {
+    if (value) {
+      return `Estoque Disponível`
+    } else {
+      return `Estoque não disponível`
+    }
+  }
+
 }

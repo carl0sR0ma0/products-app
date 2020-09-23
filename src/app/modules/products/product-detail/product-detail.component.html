@@ -4,30 +4,30 @@
   fxLayoutAlign.gt-sm="center start" fxLayoutGap="16px">
   <div fxFlex="50%" fxFlex.gt-sm="25%">
     <mat-card class="mat-elevation-z0">
-      <img mat-card-image class="productCover" [src]="Produto.image" alt="Photo of a {{Produto.name}}" />
+      <img mat-card-image class="mat-elevation-z3 productCover" [src]="Produto.image" alt="Photo of a {{Produto.name}}" />
     </mat-card>
-    <mat-card class="mat-elevation-z3">
+    <div class="mat-elevation-z2 tamanho">
+      <span  class="mat-display-1">{{Produto.category.name}}</span>
       <mat-card-header>
-        <span class="productInfo">{{Produto.category.name}}</span>
         <div class="description">          
-          <span class="productInfo">{{Produto.description}}</span>
+          <span>{{Produto.description}}</span>
         </div>
       </mat-card-header>
-    </mat-card>
+    </div>
   </div>
   <div fxFlex="50" fxFlex.gt-sm="75%">
     <mat-card class="mat-elevation-z0">
       <div class="row">
         <span class="mat-display-1">{{Produto.name}}</span><span class="mat-display-1">{{Produto.brand}}</span><span class="mat-display-1">{{Produto.model}}</span>
         <br>
-        <span class="productInfo price">{{Produto.price}}</span>
+        <span class="productInfo">R$ {{Produto.price}}</span><span class="price"> 30% OFF</span>
         <br>
-        <span *ngIf="Produto.freeShipping" class="productInfo">{{Produto.freeShipping}}</span>
+        <span *ngIf="Produto.freeShipping" class="productInfo price">{{verificationFreeShipping(Produto.freeShipping)}}</span>
       </div>
       <div *ngIf="Produto.enabled || Produto.qty" class="row">
-        <span *ngIf="Produto.enabled" class="productInfo">{{Produto.enabled}}</span>
+        <span *ngIf="Produto.enabled" class="productInfo">{{verificationEstoque(Produto.enabled)}}</span>
         &nbsp;
-        <span *ngIf="Produto.qty" class="productInfo">{{Produto.qty}}</span>
+        <span *ngIf="Produto.qty" class="productInfo prodQtdy">{{Produto.qty}} unidades disponiveis</span>
       </div>
     </mat-card>
   </div>
