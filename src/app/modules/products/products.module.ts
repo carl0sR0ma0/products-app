@@ -16,10 +16,11 @@ import { ProductsComponent } from './products.component';
 import { ProductsCardComponent } from './products-card/products-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ComponentsModule } from './../../components/components.module';
+import { NewProductComponent } from './new-product/new-product.component';
 
 
 @NgModule({
-  declarations: [ProductsComponent, ProductsCardComponent, ProductDetailComponent],
+  declarations: [ProductsComponent, ProductsCardComponent, ProductDetailComponent, NewProductComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

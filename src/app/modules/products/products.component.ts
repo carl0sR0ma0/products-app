@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from "rxjs";
 import { Produto } from "./../../core/models/produto.model";
 import { ProductsService } from "./../../services/products.service";
+import { MatDialog } from '@angular/material/dialog';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @Component({
   selector: 'app-products',
@@ -14,7 +16,8 @@ export class ProductsComponent implements OnInit, OnDestroy {
   Produtos: Produto[]
 
   constructor(
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +33,14 @@ export class ProductsComponent implements OnInit, OnDestroy {
       this.Produtos = response.body['data']
     }, err => {
       console.log(err)
+    })
+  }
+
+  openNewProductModal(): void {
+    const dialogRef = this.dialog.open(NewProductComponent, {
+      width: '600px',
+      height: '600px',
+      disableClose: true
     })
   }
 

@@ -1,5 +1,8 @@
 <app-loading *ngIf="!Produtos"></app-loading>
 <div *ngIf="Produtos" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+  <div fxFlex="100%" fxFlex.sm="100%" fxFlex.sm="100%">
+    <button mat-flat-button color="primary" (click)="openNewProductModal()">Adicionar produto</button>
+  </div>
   <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let produto of Produtos">
     <app-products-card [produto]="produto"></app-products-card>
   </div>  
