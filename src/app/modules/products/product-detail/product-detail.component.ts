@@ -31,7 +31,6 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   findProductByName(productName: String): void {
     this.htttpRequest = this.productService.findProductByName(productName).subscribe(response => {
       this.Produto = response.body['data']
-      console.log(this.Produto)
     }, err => {
       console.log(err)
     })

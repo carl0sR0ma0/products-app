@@ -18,14 +18,14 @@
   <div fxFlex="50" fxFlex.gt-sm="75%">
     <mat-card class="mat-elevation-z0">
       <div class="row">
-        <span class="mat-display-1">{{Produto.name}}</span><span class="mat-display-1">{{Produto.brand}}</span><span class="mat-display-1">{{Produto.model}}</span>
+        <span class="mat-display-1 titulo">{{Produto.name}} {{Produto.brand}} {{Produto.model}}</span><span class="mat-display-1"></span><span class="mat-display-1"></span>
         <br>
         <span class="productInfo">R$ {{Produto.price}}</span><span class="price"> 30% OFF</span>
         <br>
         <span *ngIf="Produto.freeShipping" class="productInfo price">{{verificationFreeShipping(Produto.freeShipping)}}</span>
       </div>
       <div *ngIf="Produto.enabled || Produto.qty" class="row">
-        <span *ngIf="Produto.enabled" class="productInfo">{{verificationEstoque(Produto.enabled)}}</span>
+        <span *ngIf="Produto.enabled">{{verificationEstoque(Produto.enabled)}}</span>
         &nbsp;
         <span *ngIf="Produto.qty" class="productInfo prodQtdy">{{Produto.qty}} unidades disponiveis</span>
       </div>
