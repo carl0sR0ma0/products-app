@@ -42,6 +42,13 @@ export class ProductsComponent implements OnInit, OnDestroy {
       height: '600px',
       disableClose: true
     })
+
+    dialogRef.afterClosed().subscribe(newProductAdded => {      
+      if (newProductAdded) {
+        this.Produtos = undefined
+        this.findAllProducts()
+      }
+    })
   }
 
 }
