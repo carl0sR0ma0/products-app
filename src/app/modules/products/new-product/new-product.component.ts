@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Categoria } from './../../../core/models/categoria.model';
 import { CategoriesService } from './../../../services/categories.service';
 import { MyToastrService } from '../../../services/toastr.service';
+import { ProductsService } from './../../../services/products.service';
 
 @Component({
   selector: 'app-new-product',
@@ -16,6 +17,7 @@ export class NewProductComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
 
   categoryFormGroup: FormGroup
+  productFormGroup: FormGroup
   isNewCategory: boolean = false
   categorias: Categoria[]
   stepCategoryLabel: String = 'Categoria'
@@ -25,12 +27,14 @@ export class NewProductComponent implements OnInit, OnDestroy {
   constructor(
     private categoryService: CategoriesService,
     private builder: FormBuilder,
-    private toastr: MyToastrService
+    private toastr: MyToastrService,
+    private productService: ProductsService
   ) { }
 
   ngOnInit(): void {
     this.findAllCategories()
     this.initializeSelectCategoryFormGroup()
+    this.initializeProductFormGroup()
   }
 
   ngOnDestroy(): void {
@@ -59,6 +63,22 @@ export class NewProductComponent implements OnInit, OnDestroy {
     })
   }
 
+  initializeProductFormGroup(): void {
+    this.productFormGroup = this.builder.group({
+      sku: this.builder.control(null, [Validators.required]),
+      name: this.builder.control(null, [Validators.required]),
+      freeShipping: this.builder.control(null, [Validators.required]),
+      enabled: this.builder.control(null, [Validators.required]),
+      image: this.builder.control(null, [Validators.required]),
+      description: this.builder.control(null),
+      price: this.builder.control(null),
+      qty: this.builder.control(null),
+      brand: this.builder.control(null),
+      model: this.builder.control(null),
+      category: this.builder.control(null, [Validators.required])
+    })
+  }
+
   newCategory(): void {
     this.isNewCategory = !this.isNewCategory
     this.initializeNewCategoryFormGroup();
@@ -74,18 +94,27 @@ export class NewProductComponent implements OnInit, OnDestroy {
     if (this.isNewCategory) {
       this.createNewCategory(this.categoryFormGroup.value)
     } else {
-      // definir o Id no formulário de produtos
+      this.productFormGroup.controls['category'].setValue(this.categoryFormGroup.value['categoria']['_id'])
       this.stepCategoryLabel = `Categoria: ${this.categoryFormGroup.value['categoria']['name']}` 
     }
   }
 
   createNewCategory(formValueCategory: Categoria): void {
     this.httpRequest = this.categoryService.createNewCategory(formValueCategory).subscribe(response => {
-      //definir o ID no formulário de Produtos
+      this.productFormGroup.controls['category'].setValue(response.body['data']['_id'])
       this.stepCategoryLabel = `Categoria: ${response.body['data']['name']}`
       this.toastr.showToastrSuccess(`A categoria ${response.body['data']['name']} foi adicionada com sucesso`)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
+    })
+  }
+
+  createNewProduct(): void {
+    this.httpRequest = this.productService.createNewProduct(this.productFormGroup.value).subscribe(response => {
+      this.toastr.showToastrSuccess(`O produto ${response.body['data']['name']} foi criado com sucesso`)
+    }, err => {
+      this.toastr.showToastrError(`${err.error['message']}`)
+      console.log(err.error['message'])
     })
   }
 

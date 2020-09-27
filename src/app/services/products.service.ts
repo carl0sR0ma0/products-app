@@ -18,4 +18,8 @@ export class ProductsService {
   findProductByName(productName: String) : Observable<HttpResponse<Produto>> {
     return this.http.get<Produto>(`${API_URL}/produto/listarUm/${productName}`, { observe: 'response' })
   }
+
+  createNewProduct(body: Produto): Observable<HttpResponse<Produto>> {
+    return this.http.post<Produto>(`${API_URL}/produto/criar`, body, { observe: 'response'})
+  }
 }

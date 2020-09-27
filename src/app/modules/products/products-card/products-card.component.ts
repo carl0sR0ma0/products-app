@@ -23,7 +23,7 @@ export class ProductsCardComponent implements OnInit {
     if (value) {
       return `Frete Grátis`
     } else {
-      return `${this.produto.qty}`
+      return `Frete: R$100,00`
     }
   }
 

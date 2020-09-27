@@ -32,6 +32,48 @@
       <button class="button" color="primary" mat-button (click)="nextStep()" matStepperNext [disabled]="categoryFormGroup.invalid">Próximo</button>
     </div>
   </mat-step>
+  <mat-step [stepControl]="productFormGroup" editable="false">
+    <form [formGroup]="productFormGroup" class="form">
+    <ng-template matStepLabel>Produto</ng-template>
+      <mat-form-field class="form-element">
+        <mat-label>SKU</mat-label>
+        <input matInput formControlName="sku" placeholder="SKU" required>    
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" placeholder="Nome" required>
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="brand" placeholder="Marca">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Modelo</mat-label>
+        <input matInput formControlName="model" placeholder="Modelo">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Preço</mat-label>
+        <input type="number" matInput formControlName="price" placeholder="Preco">
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Quantidade</mat-label>
+        <input type="number" matInput formControlName="qty" placeholder="Quantidade">
+      </mat-form-field>
+      <mat-slide-toggle formControlName="freeShipping">Frete Grátis</mat-slide-toggle>
+      <mat-slide-toggle formControlName="enabled">Disponível</mat-slide-toggle>
+      <mat-form-field class="form-element">
+        <mat-label>Imagem</mat-label>
+        <input matInput formControlName="image" placeholder="Link da Imagem" required>
+      </mat-form-field>
+      <mat-form-field class="form-element">
+        <mat-label>Descrição:</mat-label>
+        <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description" placeholder="Descrição"></textarea>
+      </mat-form-field>
+      <div class="form-element">
+        <button class="button" color="primary" mat-button [mat-dialog-close]="true" [disabled]="productFormGroup.invalid" (click)="createNewProduct()">Adicionar produto</button>
+      </div>
+    </form>
+  </mat-step>
 </mat-horizontal-stepper>
 <div class="form-element">
   <button mat-button class="button" color="warn" [mat-dialog-close]="false">Fechar</button>
