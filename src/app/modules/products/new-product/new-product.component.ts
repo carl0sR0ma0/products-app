@@ -7,6 +7,8 @@ import { Categoria } from './../../../core/models/categoria.model';
 import { CategoriesService } from './../../../services/categories.service';
 import { MyToastrService } from '../../../services/toastr.service';
 import { ProductsService } from './../../../services/products.service';
+import { CategoryValidator } from './../../../core/validators/categoria.validator';
+import { ProductValidator } from './../../../core/validators/produto.validator';
 
 @Component({
   selector: 'app-new-product',
@@ -30,7 +32,9 @@ export class NewProductComponent implements OnInit, OnDestroy {
     private builder: FormBuilder,
     private toastr: MyToastrService,
     private productService: ProductsService,
-    private dialogRef: MatDialogRef<NewProductComponent>
+    private dialogRef: MatDialogRef<NewProductComponent>,
+    private categoryValidator: CategoryValidator,
+    private productValidator: ProductValidator
   ) { }
 
   ngOnInit(): void {
@@ -59,7 +63,7 @@ export class NewProductComponent implements OnInit, OnDestroy {
 
   initializeNewCategoryFormGroup(): void {
     this.categoryFormGroup = this.builder.group({
-      name: this.builder.control(null, [Validators.required]),
+      name: this.builder.control(null, [Validators.required], this.categoryValidator.validatorUniqueCategoryName()),
       code: this.builder.control(null, [Validators.required]),
       description: this.builder.control(null)
     })
@@ -68,7 +72,7 @@ export class NewProductComponent implements OnInit, OnDestroy {
   initializeProductFormGroup(): void {
     this.productFormGroup = this.builder.group({
       sku: this.builder.control(null, [Validators.required]),
-      name: this.builder.control(null, [Validators.required]),
+      name: this.builder.control(null, [Validators.required], this.productValidator.validatorUniqueProductName()),
       freeShipping: this.builder.control(null, [Validators.required]),
       enabled: this.builder.control(null, [Validators.required]),
       image: this.builder.control(null, [Validators.required]),
@@ -124,6 +128,14 @@ export class NewProductComponent implements OnInit, OnDestroy {
 
   closeDialog(): void {
     this.dialogRef.close(false)
+  }
+
+  categoryNameExists(): boolean {
+    return this.categoryFormGroup.get('name').hasError('categoryNameAlreadyExists')
+  }
+
+  productNameExists(): boolean {
+    return this.productFormGroup.get('name').hasError('productNameAlreadyExists')
   }
 
 }
