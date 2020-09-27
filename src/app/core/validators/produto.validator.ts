@@ -24,7 +24,8 @@ export class ProductValidator {
           } else {
             return {'productNameAlreadyExists': true}
           }
-        })
+        }),
+        first()
       )
   }
 }

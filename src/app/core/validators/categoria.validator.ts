@@ -24,7 +24,8 @@ export class CategoryValidator {
           } else {
             return {'categoryNameAlreadyExists': true}
           }
-        })
+        }),
+        first()
       )
   }
 }
