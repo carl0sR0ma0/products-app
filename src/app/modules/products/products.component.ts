@@ -14,6 +14,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Produtos: Produto[]
+  hasError: boolean = false
 
   constructor(
     private productsService: ProductsService,
@@ -32,7 +33,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
     this.httpRequest = this.productsService.findAllProducts().subscribe(response => {
       this.Produtos = response.body['data']
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 

@@ -13,6 +13,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   private htttpRequest: Subscription
   Produto: Produto
+  hasError: boolean = false
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -32,7 +33,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     this.htttpRequest = this.productService.findProductByName(productName).subscribe(response => {
       this.Produto = response.body['data']
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 
