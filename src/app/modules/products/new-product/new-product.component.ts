@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CdkTextareaAutosize } from '@angular/cdk/text-field';
+import { MatDialogRef } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { Categoria } from './../../../core/models/categoria.model';
 import { CategoriesService } from './../../../services/categories.service';
@@ -28,7 +29,8 @@ export class NewProductComponent implements OnInit, OnDestroy {
     private categoryService: CategoriesService,
     private builder: FormBuilder,
     private toastr: MyToastrService,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private dialogRef: MatDialogRef<NewProductComponent>
   ) { }
 
   ngOnInit(): void {
@@ -112,10 +114,16 @@ export class NewProductComponent implements OnInit, OnDestroy {
   createNewProduct(): void {
     this.httpRequest = this.productService.createNewProduct(this.productFormGroup.value).subscribe(response => {
       this.toastr.showToastrSuccess(`O produto ${response.body['data']['name']} foi criado com sucesso`)
+      this.dialogRef.close(true)
     }, err => {
       this.toastr.showToastrError(`${err.error['message']}`)
       console.log(err.error['message'])
+      this.dialogRef.close(false)
     })
+  }
+
+  closeDialog(): void {
+    this.dialogRef.close(false)
   }
 
 }

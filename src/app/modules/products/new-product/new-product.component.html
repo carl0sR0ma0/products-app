@@ -70,11 +70,11 @@
         <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" formControlName="description" placeholder="Descrição"></textarea>
       </mat-form-field>
       <div class="form-element">
-        <button class="button" color="primary" mat-button [mat-dialog-close]="true" [disabled]="productFormGroup.invalid" (click)="createNewProduct()">Adicionar produto</button>
+        <button class="button" color="primary" mat-button [disabled]="productFormGroup.invalid" (click)="createNewProduct()">Adicionar produto</button>
       </div>
     </form>
   </mat-step>
 </mat-horizontal-stepper>
 <div class="form-element">
-  <button mat-button class="button" color="warn" [mat-dialog-close]="false">Fechar</button>
+  <button mat-button class="button" color="warn"(click)="closeDialog()">Fechar</button>
 </div>
