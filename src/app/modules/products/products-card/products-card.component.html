@@ -1,0 +1,15 @@
+<mat-card class="mat-elevation-z4">
+  <span class="mat-h2">{{produto.category.name}}</span>
+  <img mat-card-image [routerLink]="['/products/detail', produto.name]" class="produtoImage routerLinkProduct" [src]=produto.image alt="Photo of a {{produto.name}}">
+  <mat-card-header>
+    <mat-card-title>R$ {{produto.price}} <span class="promocao">30% OFF</span></mat-card-title>
+    <mat-card-subtitle class="promocao">{{verificationFreeShipping(produto.freeShipping)}}</mat-card-subtitle>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+  </mat-card-header>
+  <span [routerLink]="['/products/detail', produto.name]" class="mat-h4 routerLinkProduct">{{produto.name}}</span>
+  <mat-card-content>
+    <p>
+      {{sliceDescriptions(produto.description)}}
+    </p>
+  </mat-card-content>
+</mat-card>

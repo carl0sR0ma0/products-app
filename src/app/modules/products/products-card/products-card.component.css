@@ -1,0 +1,20 @@
+.produtoImage {
+  height: 150px;
+}
+
+.content>mat-card {
+  width: 200px;
+}
+
+.promocao {
+  color: #00a650;
+  font-size: 13px;
+}
+
+.routerLinkProduct {
+  cursor: pointer;
+}
+
+.routerLinkProduct:hover {
+  text-decoration: underline;
+}

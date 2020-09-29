@@ -1,0 +1,44 @@
+.content {
+  padding: 5%;
+}
+
+.productCover {
+  height: 250px;
+  max-width: 250px;
+}
+
+.description {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-left: -30px;
+  text-align: justify;
+  text-justify: inter-word;
+  font-size: 16px;
+}
+
+.productInfo {
+  font-size: 24px;
+  color: #111115;
+}
+
+.price {
+  font-size: 14px;
+  color: #00A650;
+}
+
+.tamanho {
+  margin: 0;
+  width: 70vw;
+  padding: 15px;
+}
+
+.titulo {  
+  font-size: 26px;
+  font-weight: 600;
+  font-family:  Roboto, "Helvetica Neue", sans-serif;
+}
+
+.prodQtdy {
+  color: rgba(0, 0, 0, 0.192);
+  font-size: 15px;
+}

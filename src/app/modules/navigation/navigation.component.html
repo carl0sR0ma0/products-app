@@ -1,0 +1,16 @@
+<mat-toolbar class="main-header"color="primary">
+  <mat-toolbar-row>
+    <img src="./../../../assets/logo.svg" alt="Logo"/>
+    <a class="botoes" mat-button [routerLink]="'/home'" >
+      <div class="logo-text">
+        <h1 class="logo-text-1">{{title}} <span class="logo-text-2">Market</span></h1>
+      </div>      
+    </a>
+    <div>      
+      <a class="botoes" mat-button [routerLink]="'/products'" >Produtos</a>
+    </div>
+  </mat-toolbar-row>  
+</mat-toolbar>
+<div class="outlet">
+  <router-outlet></router-outlet>
+</div>
