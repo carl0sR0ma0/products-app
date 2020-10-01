@@ -10,10 +10,12 @@ import { NavigationModule } from './modules/navigation/navigation.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { ErrorInterceptor } from './core/helpers/error.interceptor';
+import { CategoryDetailComponent } from './categories/category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
