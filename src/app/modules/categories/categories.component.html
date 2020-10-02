@@ -1,0 +1,10 @@
+<app-loading *ngIf="!Categorias"></app-loading>
+<app-error *ngIf="!Categorias && hasError"></app-error>
+<div *ngIf="Categorias && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="2px grid">
+  <div fxFlex="100%" fxFlex.lt-sm="100%" fxFlex.gt-sm="100%">
+    <button mat-flat-button color="primary" (click)="openNewCategoryModal()">Adicionar categoria</button>
+  </div>
+  <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let categoria of Categorias">
+    <app-category-card  [Categoria]="categoria"></app-category-card>
+  </div>
+</div>

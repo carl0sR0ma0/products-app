@@ -20,7 +20,7 @@ import { NavigationComponent } from './navigation.component';
     MatIconModule,
     MatButtonModule,
     MatToolbarModule,
-    RouterModule,
+    RouterModule
   ],
   exports: [
     NavigationComponent

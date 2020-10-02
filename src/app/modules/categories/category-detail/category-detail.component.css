@@ -1,0 +1,28 @@
+.content {
+  padding: 10px;
+}
+
+.categoryName {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.productImage {
+  max-width: 284px;
+  height: 284px;  
+}
+
+.text {
+  color: rgba(0, 0, 0, 0.61);
+  font-size: 14px;
+}
+
+.cardTamanho {
+  max-width: 350px;
+  height: 400px;
+}
+
+.frete {
+  color: #00a650;
+  font-size: 13px;
+}
