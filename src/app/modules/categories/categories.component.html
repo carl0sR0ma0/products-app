@@ -1,4 +1,4 @@
-<app-loading *ngIf="!Categorias"></app-loading>
+<app-loading *ngIf="!Categorias && !hasError"></app-loading>
 <app-error *ngIf="!Categorias && hasError"></app-error>
 <div *ngIf="Categorias && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="2px grid">
   <div fxFlex="100%" fxFlex.lt-sm="100%" fxFlex.gt-sm="100%">
