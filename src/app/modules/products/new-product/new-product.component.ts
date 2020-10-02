@@ -65,7 +65,8 @@ export class NewProductComponent implements OnInit, OnDestroy {
     this.categoryFormGroup = this.builder.group({
       name: this.builder.control(null, [Validators.required], this.categoryValidator.validatorUniqueCategoryName()),
       code: this.builder.control(null, [Validators.required]),
-      description: this.builder.control(null)
+      description: this.builder.control(null),
+      products: this.builder.control(null, [Validators.required])
     })
   }
 

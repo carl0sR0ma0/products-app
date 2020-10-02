@@ -17,6 +17,10 @@ export class CategoriesService {
     return this.http.get<Categoria[]>(`${API_URL}/categoria/listarTodos`, { observe: 'response' })
   }
 
+  findCategoryByName(categoryName: String): Observable<HttpResponse<Categoria>> {
+    return this.http.get<Categoria>(`${API_URL}/categoria/listarUm/${categoryName}`, { observe: 'response' })
+  }
+
   createNewCategory(body: Categoria): Observable<HttpResponse<Categoria>> {
     return this.http.post<Categoria>(`${API_URL}/categoria/criar`, body, { observe: 'response'})
   }

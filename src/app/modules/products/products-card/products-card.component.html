@@ -1,5 +1,5 @@
 <mat-card class="example-card mat-elevation-z4">
-  <span class="mat-h2">{{produto.category.name}}</span>
+  <span [routerLink]="['/categories/detail', produto.category.name]" class="mat-h2 routerLinkProduct">{{produto.category.name}}</span>
   <img mat-card-image [routerLink]="['/products/detail', produto.name]" class="produtoImage routerLinkProduct" [src]=produto.image alt="Photo of a {{produto.name}}">
   <mat-card-header>
     <mat-card-title>R$ {{produto.price}} <span class="promocao">30% OFF</span></mat-card-title>
