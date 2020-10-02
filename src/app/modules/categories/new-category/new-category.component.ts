@@ -65,4 +65,8 @@ export class NewCategoryComponent implements OnInit, OnDestroy {
     this.dialogRef.close(false)
   }
 
+  categoryNameExists(): boolean {
+    return this.categoryFormGroup.get('name').hasError('categoryNameAlreadyExists')
+  }
+
 }

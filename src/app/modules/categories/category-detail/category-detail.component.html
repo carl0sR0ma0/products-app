@@ -1,4 +1,6 @@
-<div *ngIf="Categoria" class="content" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
+<app-loading *ngIf="!Categoria && !hasError"></app-loading>
+<app-error *ngIf="Categoria && hasError"></app-error>
+<div *ngIf="Categoria && !hasError" class="content" class="content" fxLayout="row wrap" fxLayoutGap="16px grid">
   <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%">
     <mat-card class="mat-elevation-z1">
       <mat-card-title class="mat-h4">{{Categoria.name}}</mat-card-title>

@@ -14,6 +14,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Categorias: Categoria[]
+  hasError: boolean = false
 
   constructor(
     private categoriesService: CategoriesService,
@@ -35,7 +36,7 @@ export class CategoriesComponent implements OnInit, OnDestroy {
     this.httpRequest = this.categoriesService.findallCategories().subscribe(response => {
       this.Categorias = response.body['data']      
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 

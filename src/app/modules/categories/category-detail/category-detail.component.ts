@@ -14,6 +14,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
 
   private httpRequest: Subscription
   Categoria: Categoria
+  hasError: boolean = false
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,7 +38,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
       this.Categoria = response.body['data']
       console.log(this.Categoria);
     }, err => {
-      console.log(err)
+      this.hasError = true
     })
   }
 

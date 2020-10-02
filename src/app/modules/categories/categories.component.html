@@ -1,5 +1,6 @@
 <app-loading *ngIf="!Categorias"></app-loading>
-<div *ngIf="Categorias" class="content" fxLayout="row wrap" fxLayoutGap="2px grid">
+<app-error *ngIf="!Categorias && hasError"></app-error>
+<div *ngIf="Categorias && !hasError" class="content" fxLayout="row wrap" fxLayoutGap="2px grid">
   <div fxFlex="100%" fxFlex.lt-sm="100%" fxFlex.gt-sm="100%">
     <button mat-flat-button color="primary" (click)="openNewCategoryModal()">Adicionar categoria</button>
   </div>
