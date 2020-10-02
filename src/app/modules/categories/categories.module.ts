@@ -14,14 +14,17 @@ import { CategoriesRoutingModule } from './categories-routing.module';
 import { CategoriesComponent } from './categories.component';
 import { CategoryCardComponent } from './category-card/category-card.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { ComponentsModule } from './../../components/components.module';
+import { NewCategoryComponent } from './new-category/new-category.component';
 
 
 @NgModule({
-  declarations: [CategoriesComponent, CategoryCardComponent, CategoryDetailComponent],
+  declarations: [CategoriesComponent, CategoryCardComponent, CategoryDetailComponent, NewCategoryComponent],
   imports: [
     CommonModule,
     CategoriesRoutingModule,
     MatCardModule,
+    ComponentsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
     MatButtonModule,
