@@ -45,6 +45,13 @@ export class CategoriesComponent implements OnInit, OnDestroy {
       height: '600px',
       disableClose: true
     })
+
+    dialogRef.afterClosed().subscribe(newCategoryAdded => {
+      if (newCategoryAdded) {
+        this.Categorias = undefined
+        this.findAllCategories()
+      }
+    })
   }
 
 }
