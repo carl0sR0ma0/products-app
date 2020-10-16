@@ -50,4 +50,18 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  countProductsOnCategory(nProducts: Number): String {
+    return nProducts > 1 ? `${nProducts} produtos cadastrados` : `${nProducts} produto cadastrado`
+  }
+
+  nameProductOnCateogory(nProducts: Number): String {
+    if (nProducts > 1) {
+      return 'Produtos dessa categoria'
+    } else if (nProducts == 1) {
+      return 'Produto dessa categoria'
+    } else {
+      return 'Não há produtos nessa categoria'
+    }
+  }
+
 }
