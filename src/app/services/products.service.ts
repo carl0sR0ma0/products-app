@@ -32,4 +32,8 @@ export class ProductsService {
   updateProductById(productId: String, body: Produto): Observable<HttpResponse<Produto>> {
     return this.http.put<Produto>(`${API_URL}/produto/atualizar/${productId}`, body, { observe: 'response' })
   }
+
+  deleteProductById(productId: String): Observable<HttpResponse<Produto>> {
+    return this.http.delete<Produto>(`${API_URL}/produto/apagar/${productId}`, { observe: 'response' })
+  }
 }
