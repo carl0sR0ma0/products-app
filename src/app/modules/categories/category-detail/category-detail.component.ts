@@ -22,8 +22,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    const categoryName = this.activatedRoute.snapshot.params['categoryName']
-    console.log(categoryName)
+    const categoryName = this.activatedRoute.snapshot.params['categoryName']    
     this.findCategoryByName(categoryName)
   }
 
@@ -35,8 +34,7 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
 
   findCategoryByName(categoryName: String): void {
     this.httpRequest = this.categoriesSevice.findCategoryByName(categoryName).subscribe(response => {
-      this.Categoria = response.body['data']
-      console.log(this.Categoria);
+      this.Categoria = response.body['data']      
     }, err => {
       this.hasError = true
     })
