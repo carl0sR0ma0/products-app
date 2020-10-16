@@ -10,6 +10,8 @@
     <br>
     <div class="row">
       <button mat-mini-fab color="primary" aria-label="Atualizar categoria" (click)="openUpdateCategoryModal()"><mat-icon>edit</mat-icon></button>
+      &nbsp;
+      <button mat-mini-fab color="warn" arial-label="Apagar categoria" (click)="openConfirmModal()"><mat-icon>delete</mat-icon></button>
     </div>
   </div>
   <span class="mat-subheading-2 uppercase-text">{{nameProductOnCateogory(Categoria.products.length)}}</span>  

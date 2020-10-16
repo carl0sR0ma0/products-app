@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriesService } from './../../../services/categories.service';
 import { Categoria } from './../../../core/models/categoria.model';
 import { Produto } from 'src/app/core/models/produto.model';
 import { MatDialog } from '@angular/material/dialog';
 import { UpdateCategoryComponent } from '../update-category/update-category.component';
+import { ConfirmComponent } from 'src/app/components/confirm/confirm.component';
+import { MyToastrService } from 'src/app/services/toastr.service';
 
 @Component({
   selector: 'app-category-detail',
@@ -22,7 +24,9 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
   constructor(
     private activatedRoute: ActivatedRoute,
     private categoriesSevice: CategoriesService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private toastr: MyToastrService,
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -79,6 +83,30 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
         this.Categoria = undefined
         this.findCategoryByName(this.categoryName)
       }
+    })
+  }
+
+  openConfirmModal(): void {
+    const dialogRef = this.dialog.open(ConfirmComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '200px',
+      data: `Deseja apagar a categoria ${this.Categoria['name']} ? Ao apagar a categoria automaticamente vc apagará todos produtos vinculados à ele !!!`
+    })
+
+    dialogRef.afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.deleteCategory(this.Categoria['_id'])
+      }
+    })
+  }
+
+  deleteCategory(categoryId: String): void {
+    this.httpRequest = this.categoriesSevice.deleteCategoryById(categoryId).subscribe(response => {
+      this.toastr.showToastrSuccess(`A Categoria ${this.Categoria['name']} foi apagada com sucesso`)
+      this.route.navigate(['/categories'])
+    }, err => {
+      this.toastr.showToastrError(`${err.status} - ${err.error['message']}`)
     })
   }
 

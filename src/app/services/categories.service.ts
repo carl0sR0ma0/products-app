@@ -35,4 +35,8 @@ export class CategoriesService {
     return this.http.put<Categoria>(`${API_URL}/categoria/atualizar/${categoryId}`, body, { observe: 'response' })
   }
 
+  deleteCategoryById(categoryId: String): Observable<HttpResponse<Categoria>> {
+    return this.http.delete<Categoria>(`${API_URL}/categoria/apagar/${categoryId}`, { observe: 'response' })
+  }
+
 }
