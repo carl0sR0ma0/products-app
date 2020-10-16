@@ -7,7 +7,10 @@
       <span class="aditionalInfo">{{countProductsOnCategory(Categoria.products.length)}}</span>
       <mat-card-subtitle class="categoryName">{{Categoria.description}}</mat-card-subtitle>
     </mat-card>
-    
+    <br>
+    <div class="row">
+      <button mat-mini-fab color="primary" aria-label="Atualizar categoria" (click)="openUpdateCategoryModal()"><mat-icon>edit</mat-icon></button>
+    </div>
   </div>
   <span class="mat-subheading-2 uppercase-text">{{nameProductOnCateogory(Categoria.products.length)}}</span>  
   <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let produto of Categoria.products">  

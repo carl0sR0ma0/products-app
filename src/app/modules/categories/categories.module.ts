@@ -6,6 +6,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -16,10 +17,11 @@ import { CategoryCardComponent } from './category-card/category-card.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { NewCategoryComponent } from './new-category/new-category.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
 
 
 @NgModule({
-  declarations: [CategoriesComponent, CategoryCardComponent, CategoryDetailComponent, NewCategoryComponent],
+  declarations: [CategoriesComponent, CategoryCardComponent, CategoryDetailComponent, NewCategoryComponent, UpdateCategoryComponent],
   imports: [
     CommonModule,
     CategoriesRoutingModule,
@@ -31,7 +33,8 @@ import { NewCategoryComponent } from './new-category/new-category.component';
     MatDialogModule,
     MatStepperModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ]
 })
 export class CategoriesModule { }

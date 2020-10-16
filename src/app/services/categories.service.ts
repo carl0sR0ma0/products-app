@@ -31,4 +31,8 @@ export class CategoriesService {
     return this.http.get<any>(`${API_URL}/categoria/validarNomeCategoria`, { params: myParams})
   }
 
+  updateCategoryById(categoryId: String, body: Categoria): Observable<HttpResponse<Categoria>> {
+    return this.http.put<Categoria>(`${API_URL}/categoria/atualizar/${categoryId}`, body, { observe: 'response' })
+  }
+
 }

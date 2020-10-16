@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from './../../../services/categories.service';
 import { Categoria } from './../../../core/models/categoria.model';
 import { Produto } from 'src/app/core/models/produto.model';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateCategoryComponent } from '../update-category/update-category.component';
 
 @Component({
   selector: 'app-category-detail',
@@ -15,15 +17,17 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
   private httpRequest: Subscription
   Categoria: Categoria
   hasError: boolean = false
+  categoryName: String
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private categoriesSevice: CategoriesService
+    private categoriesSevice: CategoriesService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    const categoryName = this.activatedRoute.snapshot.params['categoryName']    
-    this.findCategoryByName(categoryName)
+    this.categoryName = this.activatedRoute.snapshot.params['categoryName']    
+    this.findCategoryByName(this.categoryName)
   }
 
   ngOnDestroy(): void {
@@ -60,6 +64,22 @@ export class CategoryDetailComponent implements OnInit, OnDestroy {
     } else {
       return 'Não há produtos nessa categoria'
     }
+  }
+
+  openUpdateCategoryModal(): void {
+    const dialogRef = this.dialog.open(UpdateCategoryComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '600px',
+      data: this.Categoria
+    })
+
+    dialogRef.afterClosed().subscribe(updatedCategory => {
+      if (updatedCategory) {
+        this.Categoria = undefined
+        this.findCategoryByName(this.categoryName)
+      }
+    })
   }
 
 }
