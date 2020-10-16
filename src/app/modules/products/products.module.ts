@@ -11,6 +11,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatIconModule } from '@angular/material/icon'
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsComponent } from './products.component';
@@ -18,10 +19,11 @@ import { ProductsCardComponent } from './products-card/products-card.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ComponentsModule } from './../../components/components.module';
 import { NewProductComponent } from './new-product/new-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 
 @NgModule({
-  declarations: [ProductsComponent, ProductsCardComponent, ProductDetailComponent, NewProductComponent],
+  declarations: [ProductsComponent, ProductsCardComponent, ProductDetailComponent, NewProductComponent, UpdateProductComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
@@ -35,7 +37,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatIconModule
   ],
   providers: [
     MatSlideToggleModule

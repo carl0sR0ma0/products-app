@@ -4,16 +4,24 @@
   <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%">
     <mat-card class="mat-elevation-z1">
       <mat-card-title class="mat-h4">{{Categoria.name}}</mat-card-title>
+      <span class="aditionalInfo">{{countProductsOnCategory(Categoria.products.length)}}</span>
       <mat-card-subtitle class="categoryName">{{Categoria.description}}</mat-card-subtitle>
     </mat-card>
+    <br>
+    <div class="row">
+      <button mat-mini-fab color="primary" aria-label="Atualizar categoria" (click)="openUpdateCategoryModal()"><mat-icon>edit</mat-icon></button>
+      &nbsp;
+      <button mat-mini-fab color="warn" arial-label="Apagar categoria" (click)="openConfirmModal()"><mat-icon>delete</mat-icon></button>
+    </div>
   </div>
-  <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let produto of Categoria.products">
+  <span class="mat-subheading-2 uppercase-text">{{nameProductOnCateogory(Categoria.products.length)}}</span>  
+  <div fxFlex="20%" fxFlex.xs="100%" fxFlex.sm="35%" *ngFor="let produto of Categoria.products">  
     <mat-card class="mat-elevation-z2 cardTamanho">
       <img mat-card-image class="mat-elevation-z3" [src]="produto.image" alt="Photo of a {{produto.name}}" />
       <mat-card-title>R$ {{produto.price}}</mat-card-title>
       <mat-card-content>
         <div *ngIf="produto.freeShipping || produto.enabled">
-          <span class="frete">{{verificationFreeShipping(produto.freeShipping)}} &nbsp;</span>          
+          <span class="frete">{{verificationFreeShipping(produto.freeShipping)}} &nbsp;</span>
         </div>
         <span class="text" *ngIf="produto.enabled">{{produto.name}} {{produto.brand}} {{produto.model}}</span>
       </mat-card-content>
