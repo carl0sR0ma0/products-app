@@ -28,4 +28,8 @@ export class ProductsService {
     myParams = myParams.append('name', productName)
     return this.http.get<any>(`${API_URL}/produto/validarNomeProduto`, { params: myParams })
   }
+
+  updateProductById(productId: String, body: Produto): Observable<HttpResponse<Produto>> {
+    return this.http.put<Produto>(`${API_URL}/produto/atualizar/${productId}`, body, { observe: 'response' })
+  }
 }

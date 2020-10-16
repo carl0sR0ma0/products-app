@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ProductsService } from './../../../services/products.service'
 import { Produto } from './../../../core/models/produto.model';
+import { MatDialog } from '@angular/material/dialog';
+import { UpdateProductComponent } from '../update-product/update-product.component';
 
 @Component({
   selector: 'app-product-detail',
@@ -14,15 +16,17 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
   private htttpRequest: Subscription
   Produto: Produto
   hasError: boolean = false
+  productName: String
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private productService: ProductsService
+    private productService: ProductsService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    const productName = this.activatedRoute.snapshot.params['productName']
-    this.findProductByName(productName)
+    this.productName = this.activatedRoute.snapshot.params['productName']
+    this.findProductByName(this.productName)
   }
 
   ngOnDestroy(): void {
@@ -51,6 +55,22 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
     } else {
       return `Estoque não disponível`
     }
+  }
+
+  openUpdateProductModal(): void {
+    const dialogRef = this.dialog.open(UpdateProductComponent, {
+      disableClose: true,
+      width: '600px',
+      height: '600px',
+      data: this.Produto
+    })
+
+    dialogRef.afterClosed().subscribe(updatedProduct => {
+      if (updatedProduct) {
+        this.Produto = undefined
+        this.findProductByName(this.productName)
+      }
+    })
   }
 
 }
